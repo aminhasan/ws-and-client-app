@@ -1,0 +1,26 @@
+CREATE DATABASE restdb;
+
+CREATE TABLE users(  
+   ID INT 		PRIMARY KEY     NOT NULL,  
+   USERNAME    	TEXT    NOT NULL,  
+   PASSWORD     TEXT     NOT NULL
+);
+
+INSERT INTO "users" ("id", "username", "password") VALUES (1, 'admin', 'admin'), (2, 'user', 'user');
+
+CREATE TABLE appl_logs(  
+   ID INT 		PRIMARY KEY     NOT NULL,
+   ISSUED_DATE	timestamp NOT NULL,
+   LOG_LEVEL	TEXT	NOT NULL,
+   MESSAGE		TEXT	NOT NULL,
+   DATA_SIZE	INT		NOT NULL,  
+   SOURCE     	TEXT     NOT NULL
+);
+
+INSERT INTO "appl_logs" ("id", "issued_date", "log_level", "message", "data_size", "source") 
+VALUES 
+(1, TIMESTAMP '2017-01-16 15:36:38', 'info', 'Writing data ...', 210, 'application 1'), 
+(2, TIMESTAMP '2017-02-18 10:11:00', 'info', 'Retrieving data ...', 150, 'application 1'), 
+(3, TIMESTAMP '2017-07-22 13:45:07', 'warn', 'Parameter not exist in ... ', 320, 'application 2'),
+(4, TIMESTAMP '2017-04-01 23:14:15', 'debug', 'SQL command is executed with ...', 550, 'application 3'),
+(5, TIMESTAMP '2017-06-30 01:12:24', 'error', 'Exception occurred at ...', 362, 'application 1');
